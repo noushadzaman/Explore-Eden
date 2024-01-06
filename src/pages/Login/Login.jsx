@@ -36,7 +36,7 @@ const Login = () => {
       const result = await signInWithGoogle();
       await saveUser(result?.user);
       await getToken(result?.user?.email)
-      navigate('/');
+      navigate(from);
       toast.success("Sign Up successfully")
     }
     catch (err) {
@@ -100,7 +100,7 @@ const Login = () => {
             >
               {
                 loading ?
-                  <CgSpinnerTwoAlt className="animate-spin m-auto" />
+                  <CgSpinnerTwoAlt className="animate-spin m-auto h-[24px] w-[24px]" />
                   : 'Continue'
 
               }
