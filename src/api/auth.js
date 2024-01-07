@@ -26,3 +26,9 @@ export const clearCookie = async (email) => {
   console.log("token cleared from server");
   return data;
 };
+
+// get user roll
+export const getRole = async (email) => {
+  const { data } = await axiosSecure.get(`/user/${email}`);
+  return data.role;
+};
