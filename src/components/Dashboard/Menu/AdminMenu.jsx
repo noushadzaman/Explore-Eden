@@ -1,5 +1,5 @@
 import { GiSpookyHouse } from "react-icons/gi";
-import MenuItem from "./MenuItem";
+import MenuItem from "../Sidebar/MenuItem";
 
 const AdminMenu = () => {
     return (

@@ -1,4 +1,5 @@
 import axios from "axios";
+import axiosSecure from ".";
 
 export const imageUpload = async (image) => {
   const formData = new FormData();
@@ -8,6 +9,22 @@ export const imageUpload = async (image) => {
     `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`,
     formData
   );
+
+  return data;
+};
+
+export const getAdminStat = async () => {
+  const { data } = await axiosSecure(`/admin-stat`);
+  return data;
+};
+
+export const getHostStat = async () => {
+  const { data } = await axiosSecure.get("/host-stat");
+  return data;
+};
+
+export const getGuestStat = async () => {
+  const { data } = await axiosSecure.get("/guest-stat");
 
   return data;
 };

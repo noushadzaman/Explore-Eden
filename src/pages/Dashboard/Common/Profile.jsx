@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async'
 const Profile = () => {
     const { user } = useAuth()
     const [role] = useRole()
-    console.log(user)
+
     return (
         <div className='flex justify-center items-center h-screen'>
             <Helmet>
@@ -44,15 +44,6 @@ const Profile = () => {
                                 Email
                                 <span className='font-bold text-black '>{user.email}</span>
                             </p>
-
-                            <div>
-                                <button className='bg-[#F43F5E] px-10 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053] block mb-1'>
-                                    Update Profile
-                                </button>
-                                <button className='bg-[#F43F5E] px-7 py-1 rounded-lg text-white cursor-pointer hover:bg-[#af4053]'>
-                                    Change Password
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,18 +1,16 @@
 import { useState } from 'react'
-// Components
 import Logo from '../../Shared/Logo'
-// Icons
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
 import { BsGraphUp } from 'react-icons/bs'
 import useAuth from '../../../hooks/useAuth'
 import useRole from '../../../hooks/useRole'
-import MenuItem from './MenuItem'
-import GuestMenu from '../GuestMenu'
-import HostMenu from '../HostMenu'
-import AdminMenu from '../AdminMenu'
 import ToggleBtn from '../../Button/ToggleBtn'
+import AdminMenu from '../Menu/AdminMenu'
+import HostMenu from '../Menu/HostMenu'
+import GuestMenu from '../Menu/GuestMenu'
+import MenuItem from './MenuItem'
 
 const Sidebar = () => {
     const { logOut } = useAuth();

@@ -1,28 +1,20 @@
-import { Helmet } from 'react-helmet-async'
-import useAuth from '../../../hooks/useAuth'
 import { useQuery } from '@tanstack/react-query'
-import { getBookings } from '../../../api/bookings';
-import Loader from '../../../components/Shared/Loader';
-import TableRow from '../../../components/Dashboard/TableRows/TableRow';
+import { Helmet } from 'react-helmet-async'
+import { getAllUsers } from '../../../api/auth'
+import UserDataRow from '../../../components/Dashboard/TableRows/USerDataRow'
 
-const MyBookings = () => {
-    const { user, loading } = useAuth();
-    const { data: bookings = [], isLoading, refetch } = useQuery({
-        queryKey: ['bookings'],
-        enabled: !loading,
-        queryFn: async () => await getBookings(user?.email)
+const ManageUsers = () => {
+    const { data: users = [], refetch } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => await getAllUsers(),
     })
-    console.log(bookings)
-
-    if (isLoading) return <Loader />
-
+    console.log(users)
     return (
         <>
-            <Helmet>
-                <title>My Bookings</title>
-            </Helmet>
-
             <div className='container mx-auto px-4 sm:px-8'>
+                <Helmet>
+                    <title>Manage Users</title>
+                </Helmet>
                 <div className='py-8'>
                     <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
                         <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
@@ -33,32 +25,21 @@ const MyBookings = () => {
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Title
+                                            Email
                                         </th>
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Info
+                                            Role
                                         </th>
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                                         >
-                                            Price
+                                            Status
                                         </th>
-                                        <th
-                                            scope='col'
-                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                                        >
-                                            From
-                                        </th>
-                                        <th
-                                            scope='col'
-                                            className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                                        >
-                                            To
-                                        </th>
+
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
@@ -69,7 +50,7 @@ const MyBookings = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        bookings && bookings.map(booking => <TableRow key={booking._id} booking={booking} />)
+                                        users && users.map(user => <UserDataRow key={user._id} user={user} refetch={refetch} />)
                                     }
                                 </tbody>
                             </table>
@@ -81,4 +62,4 @@ const MyBookings = () => {
     )
 }
 
-export default MyBookings
+export default ManageUsers

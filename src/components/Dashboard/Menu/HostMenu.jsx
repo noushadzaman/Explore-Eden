@@ -1,5 +1,6 @@
+import { MdOutlineManageHistory } from 'react-icons/md'
 import { GiSpookyHouse } from "react-icons/gi";
-import MenuItem from "./MenuItem";
+import MenuItem from '../Sidebar/MenuItem';
 
 const HostMenu = () => {
     return (
@@ -13,6 +14,11 @@ const HostMenu = () => {
                 icon={GiSpookyHouse}
                 label='My Listings'
                 address='my-listings'
+            />
+            <MenuItem
+                icon={MdOutlineManageHistory}
+                label='Manage Bookings'
+                address='manage-bookings'
             />
         </ >
     );
