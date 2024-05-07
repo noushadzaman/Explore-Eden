@@ -58,17 +58,17 @@ const AddRoom = () => {
 
         console.log(roomData)
 
-        try {
-            setLoading(true);
-            const data = await addRoom(roomData);
-            toast.success('Room Added!');
-            setUploadButtonText("uploaded");
-            navigate('/dashboard/my-listings');
-            setLoading(false);
-        }
-        catch (err) {
-            console.log(err)
-        }
+        // try {
+        //     setLoading(true);
+        //     const data = await addRoom(roomData);
+        //     toast.success('Room Added!');
+        //     setUploadButtonText("uploaded");
+        //     navigate('/dashboard/my-listings');
+        //     setLoading(false);
+        // }
+        // catch (err) {
+        //     console.log(err)
+        // }
     }
 
     const handleDates = (ranges) => {

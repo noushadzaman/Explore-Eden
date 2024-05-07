@@ -1,12 +1,16 @@
 import Container from "../../components/Shared/Container";
 import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import Header from "../../components/RoomDetails/Header";
+import Header from "./Header";
 import RoomInfo from "./RoomInfo";
 import RoomReservation from "./RoomReservation";
+import { format, compareAsc } from 'date-fns';
 
 const RoomDetails = () => {
     const room = useLoaderData();
+    // console.log(room)
+    // console.log(format(new Date(room?.to), 'P'))
+    // console.log(result);
 
     return (
         <Container>
@@ -14,7 +18,7 @@ const RoomDetails = () => {
                 <title>{room.title}</title>
             </Helmet>
 
-            <div className="max-w-screen-lg mx-auto">
+            <div className="max-w-[1400px] mx-auto">
                 <div className="flex flex-col gap-6">
                     <Header room={room} />
                 </div>

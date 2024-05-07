@@ -1,6 +1,13 @@
 import { format } from 'date-fns'
 
 const TableRow = ({ booking }) => {
+    
+    const handleBookingCancel = (_id) => {
+        console.log(_id);
+    }
+
+
+
     return (
         <tr>
             <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -50,14 +57,11 @@ const TableRow = ({ booking }) => {
                     {format(new Date(booking?.to), 'P')}
                 </p>
             </td>
-            <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-                <span className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'>
-                    <span
-                        aria-hidden='true'
-                        className='absolute inset-0 bg-red-200 opacity-50 rounded-full'
-                    ></span>
-                    <span className='relative'>Cancel</span>
-                </span>
+            <td className='border-b border-gray-200'>
+                <button
+                    onClick={() => handleBookingCancel(booking?._id)}
+                    className='btn-sm bg-red-300 rounded-xl text-[12px] mx-auto w-[60px]'
+                >Cancel</button>
             </td>
         </tr>
     )

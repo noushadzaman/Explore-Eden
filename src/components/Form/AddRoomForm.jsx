@@ -1,6 +1,7 @@
 import { DateRange } from 'react-date-range'
 import { CgSpinnerTwoAlt } from "react-icons/cg";
 import { categories } from '../Categories/categoriesData'
+import Features from './Features';
 
 const AddRoomForm = ({
     handleSubmit,
@@ -48,7 +49,7 @@ const AddRoomForm = ({
                             </select>
                         </div>
 
-                        <div className='space-y-1'>
+                        {/* <div className='space-y-1'>
                             <label htmlFor='location' className='block text-gray-600'>
                                 Select Availability Range
                             </label>
@@ -58,7 +59,10 @@ const AddRoomForm = ({
                                 onChange={handleDates}
                                 minDate={new Date()}
                             />
-                        </div>
+                        </div> */}
+
+                        <Features />
+
                     </div>
                     <div className='space-y-6'>
                         <div className='space-y-1 text-sm'>
@@ -75,29 +79,7 @@ const AddRoomForm = ({
                             />
                         </div>
 
-                        <div className=' p-4 bg-white w-full  m-auto rounded-lg'>
-                            <div className='file_upload px-5 py-3 relative border-4 border-dotted border-gray-300 rounded-lg'>
-                                <div className='flex flex-col w-max mx-auto text-center'>
-                                    <label>
-                                        <input
-                                            onChange={
-                                                e => handleImageChange(e.target.files[0])
-                                            }
-                                            className='text-sm cursor-pointer w-36 hidden'
-                                            type='file'
-                                            name='image'
-                                            id='image'
-                                            accept='image/*'
-                                            hidden
-                                        />
-                                        <div
-                                            className='bg-rose-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-500'>
-                                            {uploadButtonText}
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+
                         <div className='flex justify-between gap-2'>
                             <div className='space-y-1 text-sm'>
                                 <label htmlFor='price' className='block text-gray-600'>
@@ -158,6 +140,31 @@ const AddRoomForm = ({
                             </div>
                         </div>
 
+                        <div className=' p-4 bg-white w-full  m-auto rounded-lg'>
+                            <div className='file_upload px-5 py-3 relative border-2 border-rose-300 rounded-lg'>
+                                <div className='flex flex-col w-max mx-auto text-center'>
+                                    <label>
+                                        <input
+                                            onChange={
+                                                e => handleImageChange(e.target.files[0])
+                                            }
+                                            className='text-sm cursor-pointer w-36 hidden'
+                                            type='file'
+                                            name='image'
+                                            id='image'
+                                            accept='image/*'
+                                            hidden
+                                        />
+                                        <div
+                                            className='bg-rose-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-500'>
+                                            {uploadButtonText}
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div className='space-y-1 text-sm'>
                             <label htmlFor='description' className='block text-gray-600'>
                                 Description
@@ -165,7 +172,7 @@ const AddRoomForm = ({
 
                             <textarea
                                 id='description'
-                                className='block rounded-md focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border border-rose-300 focus:outline-rose-500 '
+                                className='block rounded-md focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border border-rose-300 focus:outline-rose-500'
                                 name='description'
                             ></textarea>
                         </div>

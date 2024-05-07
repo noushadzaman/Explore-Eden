@@ -29,6 +29,7 @@ const RoomInfo = ({ room }) => {
                 {room.description}
             </div>
             <hr />
+            
         </div>
     )
 }

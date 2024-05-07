@@ -22,7 +22,7 @@ const Rooms = () => {
                     setRooms(filtered);
                     setLoading(false)
                 }
-                else {
+                else { 
                     setRooms(data)
                     setLoading(false)
                 }

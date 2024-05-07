@@ -1,21 +1,23 @@
-import { Helmet } from "react-helmet-async";
-import Categories from "../../components/Categories/Categories";
-import Rooms from "../../components/Rooms/Rooms";
-import { useLoaderData } from "react-router-dom";
+import CoupleSpecial from "./CoupleSpecial";
+import Banner from "./Banner";
+import SignUpBanner from "./SignUpBanner";
+import FeaturesSection from "./FeaturesSection";
+import Reviews from "./Reviews";
+import FeaturedRooms from "./FeaturedRooms";
+import RoomsLocation from "./RoomsLocation";
 
 const Home = () => {
-  const rooms = useLoaderData();
-  console.log(rooms)
-
-  return (
-    <>
-      <Helmet>
-        <title>Explore Eden | Heavenly homes for your tour</title>
-      </Helmet>
-      <Categories></Categories>
-      <Rooms></Rooms>
-    </>
-  )
-}
-
+    return (
+        <div className="">
+            <Banner />
+            <FeaturedRooms />
+            <RoomsLocation />
+            <CoupleSpecial />
+            <Reviews />
+            <FeaturesSection />
+            <SignUpBanner />
+        </div>
+    );
+};
+// 
 export default Home;

@@ -21,12 +21,10 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
         if (bookingInfo.price > 0) {
             createPaymentIntent({ price: bookingInfo.price })
                 .then(data => {
-                    console.log(data.clientSecret)
                     setClientSecret(data.clientSecret)
                 })
         }
     }, [bookingInfo])
- 
     // Create Payment Intent
 
     const handleSubmit = async event => {
@@ -72,8 +70,6 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
             setCardError(confirmError.message)
         }
 
-        console.log('payment intent', paymentIntent)
-
         if (paymentIntent.status === 'succeeded') {
             // save payment information to the server
             // Update room status in db
@@ -85,7 +81,10 @@ const CheckoutForm = ({ bookingInfo, closeModal }) => {
             try {
                 await saveBookingInfo(paymentInfo)
 
-                await updateStatus(bookingInfo?.roomId, true)
+                await updateStatus(bookingInfo?.roomId, {
+                    from: bookingInfo.from,
+                    to: bookingInfo.to
+                })
                 const text = `Booking Successful! ${paymentIntent.id}`
                 toast.success(text)
                 navigate('/dashboard/my-bookings')

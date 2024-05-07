@@ -5,6 +5,16 @@ export const getAllRooms = async () => {
   return data;
 };
 
+export const getCoupleRooms = async () => {
+  const { data } = await axiosSecure("/rooms/couple");
+  return data;
+};
+
+export const getFeaturedRooms = async () => {
+  const { data } = await axiosSecure("/rooms/featured");
+  return data;
+};
+
 export const getRoom = async (id) => {
   const { data } = await axiosSecure(`/room/${id}`);
   return data

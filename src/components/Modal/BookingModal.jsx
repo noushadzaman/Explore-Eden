@@ -44,29 +44,31 @@ const BookingModal = ({ closeModal, isOpen, bookingInfo }) => {
                                 </Dialog.Title>
                                 <div className='mt-2'>
                                     <p className='text-sm text-gray-500'>
-                                        Room: {bookingInfo.title}
+                                        Room: {bookingInfo?.title}
                                     </p>
                                 </div>
                                 <div className='mt-2'>
                                     <p className='text-sm text-gray-500'>
-                                        Location: {bookingInfo.location}
+                                        Location: {bookingInfo?.location}
                                     </p>
                                 </div>
                                 <div className='mt-2'>
                                     <p className='text-sm text-gray-500'>
-                                        Guest: {bookingInfo.guest.name}
+                                        Guest: {bookingInfo?.guest?.name}
                                     </p>
                                 </div>
+                                {
+                                    bookingInfo?.from && bookingInfo?.to &&
+                                    <div className='mt-2'>
+                                        <p className='text-sm text-gray-500'>
+                                            From: {format(new Date(bookingInfo?.from), 'PP')} - To:{' '}
+                                            {format(new Date(bookingInfo?.to), 'PP')}
+                                        </p>
+                                    </div>
+                                }
                                 <div className='mt-2'>
                                     <p className='text-sm text-gray-500'>
-                                        From: {format(new Date(bookingInfo.from), 'PP')} - To:{' '}
-                                        {format(new Date(bookingInfo.to), 'PP')}
-                                    </p>
-                                </div>
-
-                                <div className='mt-2'>
-                                    <p className='text-sm text-gray-500'>
-                                        Price: $ {bookingInfo.price}
+                                        Price: $ {bookingInfo?.price}
                                     </p>
                                 </div>
                                 <hr className='mt-8 ' />

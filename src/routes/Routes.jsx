@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Main from '../layouts/Main'
-import Home from '../pages/Home/Home'
+import RoomsPage from '../pages/RoomsPage/RoomsPage'
 import ErrorPage from '../pages/ErrorPage'
 import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
@@ -17,6 +17,7 @@ import ManageBookings from '../pages/Dashboard/Host/ManageBookings'
 import ManageUsers from '../pages/Dashboard/Admin/ManageUsers'
 import AdminRoute from './AdminRoute'
 import Statistics from '../pages/Dashboard/Common/Statistics'
+import Home from '../pages/Home/Home'
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/rooms',
+        element: <RoomsPage />,
       },
       {
         path: '/room/:id',
